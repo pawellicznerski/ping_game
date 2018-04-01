@@ -57,6 +57,24 @@ section > #ball{
   width: 20px;
 }
 
-section.info{
+section.container > .info{
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(130, 130, 130, 0.5);
+}
 
+section.container > .info > .info_box{
+  text-align: center;
+  margin-top: 40px;
+  // background-color: rgba(130, 130, 130, 0.5);
+}
+
+section.container > .info > .start-btn{
+  margin:40px auto;
+  height: 30px;
+  width: 120px;
 }

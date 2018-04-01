@@ -8,3 +8,8 @@ const game = new Game();
 const palletClient = new Pallet();
 const palletComp = new Pallet();
 const ball = new Ball();
+
+const left-pallet = document.getElementsByClassName('pallet_left')
+left-pallet.addEventListener("mousemove",()=>{
+  
+})

@@ -9,7 +9,11 @@ const palletClient = new Pallet();
 const palletComp = new Pallet();
 const ball = new Ball();
 
-const left-pallet = document.getElementsByClassName('pallet_left')
-left-pallet.addEventListener("mousemove",()=>{
-  
-})
+const leftPallet = document.getElementsByClassName('container')
+leftPallet.addEventListener("mousemove",function(event) {
+    console.log("dupa");
+}));
+
+function myFunction(){
+  console.log("dupa");
+}

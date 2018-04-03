@@ -9,11 +9,14 @@ const palletClient = new Pallet();
 const palletComp = new Pallet();
 const ball = new Ball();
 
-const leftPallet = document.getElementsByClassName('container')
-leftPallet.addEventListener("mousemove",function(event) {
-    console.log("dupa");
-}));
+const leftPallet = document.getElementsByClassName('pallet_left')[0];
+document.addEventListener("mousemove",(e)=>{
+    console.log("clientY ",e.clientY);
+    console.log("window.innerHeight ",window.innerHeight);
+    const topPosition = window.innerHeight<=e.clientY+100?window.innerHeight-100:e.clientY;
+    leftPallet.setAttribute("style",`top:${topPosition}px`)
+});
 
-function myFunction(){
-  console.log("dupa");
-}
+// function myFunction(){
+//   console.log("dupa");
+// }

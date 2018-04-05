@@ -4,7 +4,11 @@ import Ball from "./ball.js"
 import Info from "./info.js"
 
 const ball = new Ball();
-const pallet = new Pallet();
+const palletPlayer = new Pallet();
+palletPlayer.palletDOM = document.getElementsByClassName('pallet_left')[0];
+const palletComp = new Pallet();
+palletComp.palletDOM = document.getElementsByClassName('pallet_right')[0];
+const info = new Info();
 
 
 export default class Game{
@@ -15,7 +19,7 @@ export default class Game{
   play(){
     document.addEventListener("mousemove",(e)=>{
       const topPosition = window.innerHeight<=e.clientY+100?window.innerHeight-100:e.clientY;
-      pallet.palletDOM.setAttribute("style",`top:${topPosition}px`)
+      palletPlayer.palletDOM.setAttribute("style",`top:${topPosition}px`)
       // const palletDOM = document.getElementsByClassName('pallet_left');
       // console.log("top",document.getElementsByClassName('pallet_left')[0].offsetTop);
       // console.log('palletTop',palletTop);
@@ -38,18 +42,27 @@ export default class Game{
           ball.ballDirectionLeft=ball.ballDirectionLeft*(-1);
           ball.ballDirectionTop=Math.random()>0.5?-1:1;
           ball.ballSpeed=(((Math.random()*2.9)+0.1)*window.innerWidth)/window.innerWidth;
-          console.log('ball.ballSpeed',ball.ballSpeed);
+          // console.log('ball.ballSpeed',ball.ballSpeed);
         }
       }
       if(ball.ballLeft+20>=window.innerWidth){
         ball.ballDirectionLeft=ball.ballDirectionLeft*(-1);
       }
       if(ball.ballLeft<=0){
+        info.add();
+        ball.setInitialState();
         clearInterval(id);
       }
 
-      if(ball.ballTop<=0||ball.ballTop+20>=window.innerHeight){
+      if(ball.ballTop<=0||ball.ballTop+24>=window.innerHeight){
         ball.ballDirectionTop=ball.ballDirectionTop*(-1);
+      }
+
+      if(ball.ballLeft<=window.innerWidth&&ball.ballDirectionLeft>0){
+        if(ball.ballTop+20<palletComp.palletTop){
+
+        }
+        palletComp.palletDOM.setAttribute("style",`top:${palletComp.palletTop}px`)
       }
 
       const rondomValue = Math.random();
@@ -59,7 +72,4 @@ export default class Game{
       // console.log(currentLeft);
     }
   };
-  gameOver(){
-
-  }
 }

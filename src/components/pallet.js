@@ -1,7 +1,6 @@
 
 export default class Pallet{
   constructor(){
-    this.palletDOM = document.getElementsByClassName('pallet_left')[0];
+    this.palletTop=window.innerHeight/2-50;
   }
-
 }

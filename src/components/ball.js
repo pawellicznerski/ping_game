@@ -3,6 +3,8 @@ export default class Ball{
     this.ballDOM=document.getElementById('ball');
     this.ballLeft=240;
     this.ballTop=250;
-    this.ballDirection=1;
+    this.ballSpeed=1;
+    this.ballDirectionLeft=1;
+    this.ballDirectionTop=1;
   }
 }

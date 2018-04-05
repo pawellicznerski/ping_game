@@ -1,6 +1,7 @@
+
 export default class Pallet{
-  constructor(top){
-    this.top=top;
+  constructor(){
+    this.palletDOM = document.getElementsByClassName('pallet_left')[0];
   }
-  
+
 }

@@ -2,6 +2,7 @@
 import Pallet from "./pallet.js"
 import Ball from "./ball.js"
 import Info from "./info.js"
+import Score from "./score.js"
 
 const ball = new Ball();
 const palletPlayer = new Pallet();
@@ -9,12 +10,14 @@ palletPlayer.palletDOM = document.getElementsByClassName('pallet_left')[0];
 const palletComp = new Pallet();
 palletComp.palletDOM = document.getElementsByClassName('pallet_right')[0];
 const info = new Info();
+const score = new Score()
 
 
 export default class Game{
-  constructor(top,left,height){
-    this.score=false;
-    this.balls=2;
+  constructor(){
+    // this.scorePLayer=0;
+    // this.scoreComputer=0;
+    // this.scoreBoth=0;
   }
   play(){
     document.addEventListener("mousemove",(e)=>{
@@ -33,7 +36,6 @@ export default class Game{
           ball.ballDirectionLeft=ball.ballDirectionLeft*(-1);
           ball.ballDirectionTop=Math.random()>0.5?-1:1;
           ball.ballSpeed=(((Math.random()*2.9)+0.1)*window.innerWidth)/window.innerWidth;
-          console.log(ball.ballSpeed);
         }
       } else if(ball.ballLeft+40==window.innerWidth){
         if(palletTopRight<=ball.ballTop+20&&palletTopRight+100>=ball.ballTop-20){
@@ -43,7 +45,16 @@ export default class Game{
         }
       }
 
-      if(ball.ballLeft<=0||ball.ballLeft+20>=window.innerWidth){
+      if(ball.ballLeft<=0){
+        score.scoreComputer=score.scoreComputer+1;
+        console.log(score.scoreComputer,score.scorePLayer);
+        score.scoreComputer==2?info.add():info.nextball();
+        score.update();
+        ball.setInitialState();
+        clearInterval(id);
+      } else if(ball.ballLeft+20>=window.innerWidth){
+        score.scorePLayer=score.scorePLayer+1;
+        score.update();
         info.add();
         ball.setInitialState();
         clearInterval(id);

@@ -34,6 +34,15 @@ section.container{
   background-color: rgba(230, 230, 230, 1);
 }
 
+section.container > .score{
+  align-self: flex-start;
+  width: 220px;
+  height:30px;
+  background-color:  pink;
+  color: black;
+  display: none;
+}
+
 section.container > .pallet{
   position:absolute;
   width: 20px;
@@ -51,7 +60,7 @@ section.container > .pallet_right{
 
 section > #ball{
   position: absolute;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, 1);
   border-radius: 10px;
   height: 20px;
   width: 20px;

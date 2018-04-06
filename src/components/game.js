@@ -4,7 +4,7 @@ import Ball from "./ball.js"
 import Info from "./info.js"
 import Score from "./score.js"
 
-const ball = new Ball();
+export const ball = new Ball();
 const palletPlayer = new Pallet();
 palletPlayer.palletDOM = document.getElementsByClassName('pallet_left')[0];
 const palletComp = new Pallet();

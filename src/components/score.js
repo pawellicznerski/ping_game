@@ -1,5 +1,5 @@
 const scoreDOM = document.getElementsByClassName('score')[0];
-
+//TODO
 export default class Score{
   constructor(){
     this.scorePLayer=0;

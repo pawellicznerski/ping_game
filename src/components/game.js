@@ -44,7 +44,7 @@ export default class Game{
           ball.ballSpeed=(((Math.random()*2.9)+0.1)*window.innerWidth)/window.innerWidth;
         }
       }
-
+// TODO
       if(ball.ballLeft<=0){
         score.scoreComputer=score.scoreComputer+1;
         console.log(score.scoreComputer,score.scorePLayer);

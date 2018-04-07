@@ -1,7 +1,4 @@
-import Game from "./game.js";
-import {ball} from "./game.js"
-
-
+import Game, {ball} from "./game.js";
 
 const infoDOM = document.getElementsByClassName('info')[0];
 
@@ -15,11 +12,14 @@ export default class Info{
   add(){
     infoDOM.setAttribute("style","display:flex");
   }
-  nextball(){
+  addNextball(){
+
+  }
+  removeNextball(){
 
   }
 }
 
-showInfo(){
+function showInfo(){
  ball.setInitialState();
 }

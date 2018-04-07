@@ -44,11 +44,11 @@ export default class Game{
           ball.ballSpeed=(((Math.random()*2.9)+0.1)*window.innerWidth)/window.innerWidth;
         }
       }
-// TODO
+
       if(ball.ballLeft<=0){
         score.scoreComputer=score.scoreComputer+1;
         console.log(score.scoreComputer,score.scorePLayer);
-        score.scoreComputer==2?info.add():info.nextball();
+        score.scoreComputer==2?info.add():info.addNextball();
         score.update();
         ball.setInitialState();
         clearInterval(id);

@@ -46,18 +46,30 @@ export default class Game{
       }
 
       if(ball.ballLeft<=0){
-        score.scoreComputer=score.scoreComputer+1;
-        console.log(score.scoreComputer,score.scorePLayer);
-        score.scoreComputer==2?info.add():info.addNextball();
-        score.update();
-        ball.setInitialState();
         clearInterval(id);
+        // score.scoreComputer=score.scoreComputer+1;
+
+        score.scoreComputer==2?gameOver():newBall(false);
+
       } else if(ball.ballLeft+20>=window.innerWidth){
-        score.scorePLayer=score.scorePLayer+1;
-        score.update();
-        info.add();
-        ball.setInitialState();
         clearInterval(id);
+        // score.scorePLayer=score.scorePLayer+1;
+
+        score.scoreComputer==2?gameOver():newBall(true);
+      }
+
+      function gameOver(){
+        info.add()
+        score.update();
+        ball.setInitialState();
+      }
+
+      function newBall(val){
+        let forWhom = val?score.scorePLayer:score.scoreComputer;
+        forWhom=forWhom+1;
+        info.addNextball()
+        score.update();
+        ball.setInitialState();
       }
 
       if(ball.ballTop<=0||ball.ballTop+24>=window.innerHeight){

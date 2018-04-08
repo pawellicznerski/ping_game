@@ -10,16 +10,15 @@ export default class Info{
   remove(){
     infoDOM.setAttribute("style","display:none");
   }
-  add(){
+  add(gameOver,winner){
+    const text = gameOver?`${winner} won! Wanna play again?`:'Ping-pong'
+    infoTitleDOM.innerHTML=`${text}`;
     infoDOM.setAttribute("style","display:flex");
   }
   addNextball(){
-    console.log("infoTitleDOMssss",infoTitleDOM);
+    // console.log("infoTitleDOMssss",infoTitleDOM);
     infoDOM.setAttribute("style","display:flex");
     infoTitleDOM.innerHTML='Podaj nową piłke chamie';
-  }
-  removeNextball(){
-
   }
 }
 

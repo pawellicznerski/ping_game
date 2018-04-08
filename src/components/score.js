@@ -1,10 +1,9 @@
 const scoreDOM = document.getElementsByClassName('score')[0];
-//TODO
 export default class Score{
   constructor(){
-    this.scorePLayer=0;
-    this.scoreComputer=0;
-    this.scoreBoth=this.scorePLayer+this.scoreComputer;
+    this.player=0;
+    this.computer=0;
+    this.scoreBoth=this.player+this.scoreComputer;
   }
   remove(){
     scoreDOM.setAttribute("style","display:none");
@@ -12,8 +11,13 @@ export default class Score{
   add(){
     scoreDOM.setAttribute("style","display:flex;justify-content:center;align-items:center;");
   }
-  update(){
-    scoreDOM.getElementsByClassName("score_player")[0].innerHTML=`${this.scorePLayer}`;
-    scoreDOM.getElementsByClassName("score_computer")[0].innerHTML=`${this.scoreComputer}`;
+  update(gameOver){
+    if(gameOver){
+      this.remove();
+      this.player=0;
+      this.computer=0;
+    }
+    scoreDOM.getElementsByClassName("score_player")[0].innerHTML=`${this.player}`;
+    scoreDOM.getElementsByClassName("score_computer")[0].innerHTML=`${this.computer}`;
   }
 }

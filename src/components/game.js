@@ -31,46 +31,17 @@ export default class Game{
       const palletTopLeft= document.getElementsByClassName('pallet_left')[0].offsetTop;
       const palletTopRight= document.getElementsByClassName('pallet_right')[0].offsetTop;
 
-      if(ball.ballLeft==20){
-        if(palletTopLeft<=ball.ballTop+20&&palletTopLeft+100>=ball.ballTop-20){
-          ball.ballDirectionLeft=ball.ballDirectionLeft*(-1);
-          ball.ballDirectionTop=Math.random()>0.5?-1:1;
-          ball.ballSpeed=(((Math.random()*2.9)+0.1)*window.innerWidth)/window.innerWidth;
-        }
-      } else if(ball.ballLeft+40==window.innerWidth){
-        if(palletTopRight<=ball.ballTop+20&&palletTopRight+100>=ball.ballTop-20){
-          ball.ballDirectionLeft=ball.ballDirectionLeft*(-1);
-          ball.ballDirectionTop=Math.random()>0.5?-1:1;
-          ball.ballSpeed=(((Math.random()*2.9)+0.1)*window.innerWidth)/window.innerWidth;
-        }
+      if(ball.ballLeft==20||ball.ballLeft+40==window.innerWidth){
+        const val = ball.ballLeft==20?palletTopLeft:palletTopRight;
+        ball.hitTheBall(val);
       }
 
-      if(ball.ballLeft<=0){
+      if(ball.ballLeft<=0||ball.ballLeft+20>=window.innerWidth){
         clearInterval(id);
-        // score.scoreComputer=score.scoreComputer+1;
-
-        score.scoreComputer==2?gameOver():newBall(false);
-
-      } else if(ball.ballLeft+20>=window.innerWidth){
-        clearInterval(id);
-        // score.scorePLayer=score.scorePLayer+1;
-
-        score.scoreComputer==2?gameOver():newBall(true);
+        ball.stopBall();
       }
 
-      function gameOver(){
-        info.add()
-        score.update();
-        ball.setInitialState();
-      }
 
-      function newBall(val){
-        let forWhom = val?score.scorePLayer:score.scoreComputer;
-        forWhom=forWhom+1;
-        info.addNextball()
-        score.update();
-        ball.setInitialState();
-      }
 
       if(ball.ballTop<=0||ball.ballTop+24>=window.innerHeight){
         ball.ballDirectionTop=ball.ballDirectionTop*(-1);

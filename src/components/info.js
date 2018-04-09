@@ -15,7 +15,7 @@ export default class Info{
     infoDOM.setAttribute("style","display:none");
   }
   add(gameOver,winner){
-    const text = gameOver?`${winner} won! Wanna play again?`:'Ping-pong'
+    const text = gameOver?`The winner is ${winner}! Wanna play again?`:'Ping-pong'
     infoTitleDOM.innerHTML=`${text}`;
     infoDOM.setAttribute("style","display:flex");
   }

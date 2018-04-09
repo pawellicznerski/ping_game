@@ -32,11 +32,11 @@ export default class Ball{
     if(this.ballLeft<=0){
       score.computer=score.computer+1;
       winner="computer";
-      console.log(score.computer);
+      // console.log(score.computer);
     } else{
       score.player=score.player+1;
       winner="player";
-      console.log(score.player);
+      // console.log(score.player);
     }
     score.computer==2||score.player==2?gameOver():newBall();
 

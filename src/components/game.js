@@ -25,7 +25,10 @@ palletComp.movePalletComp = function(){
 
 
 export default class Game{
+
   play(){
+    ball.setInitialState();
+    
     document.addEventListener("mousemove",(e)=>{
       const topPosition = window.innerHeight<=e.clientY+100?window.innerHeight-100:e.clientY;
       palletPlayer.palletDOM.setAttribute("style",`top:${topPosition}px`)
@@ -42,7 +45,7 @@ export default class Game{
         ball.stopBall(info,score);
         // console.log(score.scorePLayer,score.scoreComputer);
       }
-      if(ball.ballTop<=0||ball.ballTop+24>=window.innerHeight){
+      if(ball.ballTop<=0||ball.ballTop+28>=window.innerHeight){
         ball.ballDirectionTop=ball.ballDirectionTop*(-1);
       }
       palletComp.movePalletComp();

@@ -3,8 +3,12 @@ import Game, {ball} from "./game.js";
 const infoDOM = document.getElementsByClassName('info')[0];
 const infoTitleDOM = document.getElementsByClassName('info')[0].children[0];
 
-const newButton = document.createElement("button");
-newButton.addEventListener("click", showInfo)
+// const newButton = document.createElement("button");
+// newButton.addEventListener("click", showInfo);
+//
+// function showInfo(){
+//  ball.setInitialState();
+// }
 
 export default class Info{
   remove(){
@@ -15,13 +19,8 @@ export default class Info{
     infoTitleDOM.innerHTML=`${text}`;
     infoDOM.setAttribute("style","display:flex");
   }
-  addNextball(){
-    // console.log("infoTitleDOMssss",infoTitleDOM);
+  addNextball(winner){
     infoDOM.setAttribute("style","display:flex");
-    infoTitleDOM.innerHTML='Podaj nową piłke chamie';
+    infoTitleDOM.innerHTML=` ${winner}. New ball.`;
   }
-}
-
-function showInfo(){
- ball.setInitialState();
 }

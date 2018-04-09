@@ -21,6 +21,6 @@ export default class Info{
   }
   addNextball(winner){
     infoDOM.setAttribute("style","display:flex");
-    infoTitleDOM.innerHTML=` ${winner}. New ball.`;
+    infoTitleDOM.innerHTML=`Poin to ${winner}. New ball.`;
   }
 }
